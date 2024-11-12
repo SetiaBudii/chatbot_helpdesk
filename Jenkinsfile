@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    
-    environment {
-        COMPOSE_PATH = '/home/ta/chatbot_helpdesk'
-    }
 
     stages {
         stage('Checkout') {
@@ -15,12 +11,12 @@ pipeline {
         stage('Build and Start Services') {
             steps {
                 script {
-                    sh "${COMPOSE_PATH}/docker compose down"
-                    sh "${COMPOSE_PATH}/docker compose up -d --build" 
+                    // Use the workspace directory for Docker Compose commands
+                    sh "docker-compose -f ${WORKSPACE}/docker-compose.yml down"
+                    sh "docker-compose -f ${WORKSPACE}/docker-compose.yml up -d --build"
                 }
             }
         }
-
     }
 
     post {
