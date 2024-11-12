@@ -16,7 +16,6 @@ pipeline {
             steps {
                 script {
                     sh "cd ${COMPOSE_PATH} && docker-compose down"
-                    sh "cd ${COMPOSE_PATH} && docker-compose pull"
                     sh "cd ${COMPOSE_PATH} && docker-compose up -d --build"
                 }
             }
