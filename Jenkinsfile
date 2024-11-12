@@ -8,6 +8,15 @@ pipeline {
             }
         }
         
+        stage('Remove Existing Container') {
+            steps {
+                script {
+                    // Force remove the existing container if it exists
+                    sh "docker rm -f chatbot_helpdesk || true"
+                }
+            }
+        }
+
         stage('Build and Start Services') {
             steps {
                 script {
