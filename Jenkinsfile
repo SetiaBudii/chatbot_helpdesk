@@ -13,7 +13,7 @@ pipeline {
                 script {
                     // Use the workspace directory for Docker Compose commands
                     sh "docker compose -f ${WORKSPACE}/docker-compose.yml down"
-                    sh "docker compose -f ${WORKSPACE}/docker-compose.yml up -d --build"
+                    sh "docker compose -f ${WORKSPACE}/docker-compose.yml up -d --build --remove-orphans"
                 }
             }
         }
