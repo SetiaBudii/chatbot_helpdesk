@@ -1,0 +1,9 @@
+services:
+  bot:
+    build: .
+    container_name: chatbot_helpdesk
+    volumes:
+      - .:/app
+    environment:
+      - API_TOKEN=${API_TOKEN}
+    command: python bot.py
