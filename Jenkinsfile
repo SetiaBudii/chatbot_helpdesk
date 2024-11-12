@@ -15,8 +15,8 @@ pipeline {
         stage('Build and Start Services') {
             steps {
                 script {
-                    sh "cd ${COMPOSE_PATH} && docker-compose down"
-                    sh "cd ${COMPOSE_PATH} && docker-compose up -d --build"
+                    sh "${COMPOSE_PATH}/docker-compose down"
+                    sh "${COMPOSE_PATH}/docker-compose up -d --build" 
                 }
             }
         }
