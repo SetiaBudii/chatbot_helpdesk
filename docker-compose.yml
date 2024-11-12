@@ -5,5 +5,5 @@ services:
     volumes:
       - .:/app
     environment:
-      - API_TOKEN=${API_TOKEN}
+      - API_TOKEN=7745126157:AAGpH-EdTAP0_vFkDPNMukIB1DmneJIY3A0
     command: python bot.py
